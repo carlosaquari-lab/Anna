@@ -1,0 +1,32 @@
+THIRD-PARTY NOTICES FOR ANNA 1.0.0
+
+This Windows distribution contains the following third-party components:
+
+Python 3.12
+Copyright © 2001-2026 Python Software Foundation.
+Distributed under the Python Software Foundation License Version 2.
+See licenses\PYTHON-3.12.txt.
+
+PySide6 6.11.0, PySide6 Essentials 6.11.0, PySide6 Addons 6.11.0,
+Shiboken6 6.11.0 and Qt 6.11.0
+Copyright © The Qt Company Ltd. and other contributors.
+The PySide6 wheels declare: LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only.
+For this GPL-licensed ANNA distribution these components are redistributed
+under GPL-3.0-only. The complete GNU GPL version 3 text is provided in
+licenses\QT-PYSIDE6-GPL-3.0.txt and also in ANNA's LICENSE.
+
+PyInstaller 6.21.0 bootloader
+Copyright © PyInstaller Development Team.
+PyInstaller is GPL-2.0-or-later with a special exception permitting the
+distribution of bundled applications. See licenses\PYINSTALLER-6.21.txt.
+
+Microsoft Visual C++ Runtime libraries may be collected from the Python/Qt
+runtime installed on the build system. They are redistributed subject to the
+Microsoft Visual Studio licensing terms.
+
+Windows system DLLs are not intentionally bundled.
+
+ANNA's own code and documentation are licensed separately under
+GPL-3.0-or-later. Example videos and their derived screenshots are not covered
+automatically by the code license; see PACKAGE_README.txt and
+RESOURCE_INVENTORY.md.

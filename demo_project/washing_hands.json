@@ -1,0 +1,358 @@
+{
+  "schema_version": "0.4.0-pause-event",
+  "project_id": "anna-interactive-video",
+  "video": {
+    "source": "demo_project/videos/VID_20260906_121715.mp4",
+    "duration_ms": 8787,
+    "frame_width": 1536,
+    "frame_height": 864
+  },
+  "videos": [
+    {
+      "video_id": "video-1",
+      "name": "Video 1",
+      "source": "demo_project/videos/VID_20260906_121554.mp4",
+      "frame_width": 1536,
+      "frame_height": 864,
+      "pause_events": [
+        {
+          "event_id": "pause-15000",
+          "pause_id": "pause-15000",
+          "time_ms": 15000,
+          "hotspots": [
+            {
+              "hotspot_id": "810b8610-b46a-420f-b406-2ce0f1ee1e03",
+              "name": "Hotspot",
+              "shape": "rectangle",
+              "geometry": {
+                "x": 0.04921875,
+                "y": 0.46874999999999994,
+                "width": 0.42187499999999994,
+                "height": 0.4791666666666666
+              },
+              "style": {
+                "color": "#00A6C8",
+                "border_width": 3,
+                "fill_opacity": 15
+              },
+              "message_text": "washing hands",
+              "hotspot_label": "",
+              "show_message_text": true,
+              "communication_category": "unspecified",
+              "audio_asset": null,
+              "tts_enabled": true,
+              "text_style": {
+                "font_family": "Arial",
+                "font_size_px": 26,
+                "font_bold": true,
+                "uppercase": true,
+                "text_color": "#FFFF00",
+                "background_color": "#111111",
+                "background_opacity": 100
+              }
+            }
+          ],
+          "supports": [
+            {
+              "support_id": "support_1",
+              "label": "Support 1",
+              "text": "SOAP",
+              "image_asset": "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.jpg",
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 0,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_2",
+              "label": "Apoyo 2",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 1,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_3",
+              "label": "Apoyo 3",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 2,
+              "communication_category": "unspecified"
+            }
+          ]
+        }
+      ],
+      "pauses": [
+        {
+          "event_id": "pause-15000",
+          "pause_id": "pause-15000",
+          "time_ms": 15000,
+          "hotspots": [
+            {
+              "hotspot_id": "810b8610-b46a-420f-b406-2ce0f1ee1e03",
+              "name": "Hotspot",
+              "shape": "rectangle",
+              "geometry": {
+                "x": 0.04921875,
+                "y": 0.46874999999999994,
+                "width": 0.42187499999999994,
+                "height": 0.4791666666666666
+              },
+              "style": {
+                "color": "#00A6C8",
+                "border_width": 3,
+                "fill_opacity": 15
+              },
+              "message_text": "washing hands",
+              "hotspot_label": "",
+              "show_message_text": true,
+              "communication_category": "unspecified",
+              "audio_asset": null,
+              "tts_enabled": true,
+              "text_style": {
+                "font_family": "Arial",
+                "font_size_px": 26,
+                "font_bold": true,
+                "uppercase": true,
+                "text_color": "#FFFF00",
+                "background_color": "#111111",
+                "background_opacity": 100
+              }
+            }
+          ],
+          "supports": [
+            {
+              "support_id": "support_1",
+              "label": "Support 1",
+              "text": "SOAP",
+              "image_asset": "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.jpg",
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 0,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_2",
+              "label": "Apoyo 2",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 1,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_3",
+              "label": "Apoyo 3",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 2,
+              "communication_category": "unspecified"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "video_id": "video-2",
+      "name": "Video 2",
+      "source": "demo_project/videos/VID_20260906_121715.mp4",
+      "frame_width": 1536,
+      "frame_height": 864,
+      "pause_events": [
+        {
+          "event_id": "pause-0",
+          "pause_id": "pause-0",
+          "time_ms": 0,
+          "hotspots": [],
+          "supports": [
+            {
+              "support_id": "support_1",
+              "label": "Support 1",
+              "text": "",
+              "image_asset": "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.png",
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 0,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_2",
+              "label": "Apoyo 2",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 1,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_3",
+              "label": "Apoyo 3",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 2,
+              "communication_category": "unspecified"
+            }
+          ]
+        }
+      ],
+      "pauses": [
+        {
+          "event_id": "pause-0",
+          "pause_id": "pause-0",
+          "time_ms": 0,
+          "hotspots": [],
+          "supports": [
+            {
+              "support_id": "support_1",
+              "label": "Support 1",
+              "text": "",
+              "image_asset": "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.png",
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 0,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_2",
+              "label": "Apoyo 2",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 1,
+              "communication_category": "unspecified"
+            },
+            {
+              "support_id": "support_3",
+              "label": "Apoyo 3",
+              "text": "",
+              "image_asset": null,
+              "audio_asset": null,
+              "tts_enabled": true,
+              "visible": true,
+              "position": 2,
+              "communication_category": "unspecified"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "current_video_index": 1,
+  "text_output": {
+    "background_color": "#000000",
+    "background_opacity": 100,
+    "text_color": "#FFFFFF",
+    "text_size": 28,
+    "duration_ms": 0,
+    "visible": true
+  },
+  "pause_tolerance_ms": 250,
+  "pause_events": [
+    {
+      "event_id": "pause-0",
+      "pause_id": "pause-0",
+      "time_ms": 0,
+      "hotspots": [],
+      "supports": [
+        {
+          "support_id": "support_1",
+          "label": "Support 1",
+          "text": "",
+          "image_asset": "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.png",
+          "audio_asset": null,
+          "tts_enabled": true,
+          "visible": true,
+          "position": 0,
+          "communication_category": "unspecified"
+        },
+        {
+          "support_id": "support_2",
+          "label": "Apoyo 2",
+          "text": "",
+          "image_asset": null,
+          "audio_asset": null,
+          "tts_enabled": true,
+          "visible": true,
+          "position": 1,
+          "communication_category": "unspecified"
+        },
+        {
+          "support_id": "support_3",
+          "label": "Apoyo 3",
+          "text": "",
+          "image_asset": null,
+          "audio_asset": null,
+          "tts_enabled": true,
+          "visible": true,
+          "position": 2,
+          "communication_category": "unspecified"
+        }
+      ]
+    }
+  ],
+  "pauses": [
+    {
+      "event_id": "pause-0",
+      "pause_id": "pause-0",
+      "time_ms": 0,
+      "hotspots": [],
+      "supports": [
+        {
+          "support_id": "support_1",
+          "label": "Support 1",
+          "text": "",
+          "image_asset": "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.png",
+          "audio_asset": null,
+          "tts_enabled": true,
+          "visible": true,
+          "position": 0,
+          "communication_category": "unspecified"
+        },
+        {
+          "support_id": "support_2",
+          "label": "Apoyo 2",
+          "text": "",
+          "image_asset": null,
+          "audio_asset": null,
+          "tts_enabled": true,
+          "visible": true,
+          "position": 1,
+          "communication_category": "unspecified"
+        },
+        {
+          "support_id": "support_3",
+          "label": "Apoyo 3",
+          "text": "",
+          "image_asset": null,
+          "audio_asset": null,
+          "tts_enabled": true,
+          "visible": true,
+          "position": 2,
+          "communication_category": "unspecified"
+        }
+      ]
+    }
+  ]
+}
