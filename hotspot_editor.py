@@ -34,11 +34,13 @@ from users_manager import UsersManager
 from localization import DEFAULT_LANGUAGE, LANGUAGE_LABELS, PRODUCT_NAME, PRODUCT_SUBTITLE, PRODUCT_TITLE, current_language, load_language, localize_widget_tree, save_language, set_language, tr
 from data_storage import users_path
 from version import APP_VERSION
+from anna import resource_root
 
 ROOT = Path(__file__).resolve().parent
-def application_data_root() -> Path:
-    if not getattr(sys, "frozen", False):
-        return ROOT
+SOURCE_CHECKOUT = (ROOT / "ANNA.spec").is_file()
+
+
+def windows_application_data_root() -> Path:
     local_app_data = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local"))
     current = local_app_data / "ANNA"
     legacy = local_app_data / "Emma"
@@ -48,14 +50,22 @@ def application_data_root() -> Path:
     return current
 
 
+def application_data_root() -> Path:
+    if not getattr(sys, "frozen", False) and SOURCE_CHECKOUT:
+        return ROOT
+    return windows_application_data_root()
+
+
 USER_ROOT = application_data_root()
+RESOURCE_ROOT = ROOT if getattr(sys, "frozen", False) else resource_root()
+SETTINGS_ROOT = ROOT if getattr(sys, "frozen", False) or SOURCE_CHECKOUT else USER_ROOT
 RESULTS_DIR = USER_ROOT / "results"
 USERS_CSV = users_path(USER_ROOT)
 LOG_PATH = RESULTS_DIR / "editor_hotspots_log.jsonl"
 DEFAULT_PROJECT_FILENAME = "anna_project.json"
 AUDIO_DIR = USER_ROOT / "assets" / "audio"
 SUPPORTS_DIR = USER_ROOT / "assets" / "supports"
-APP_ICON = ROOT / "assets" / "app" / "ANNA.ico"
+APP_ICON = RESOURCE_ROOT / "assets" / "app" / "ANNA.ico"
 HOTSPOT_TTS_FIELD = "tts_enabled"
 HANDLE = 10.0
 MIN_SIZE_PX = 24.0
@@ -66,12 +76,12 @@ CONTINUE_RESUME_FALLBACK_MS = 120
 
 def asset_path(relative_path: str) -> Path:
     local_path = USER_ROOT / relative_path
-    return local_path if local_path.exists() else ROOT / relative_path
+    return local_path if local_path.exists() else RESOURCE_ROOT / relative_path
 
 
 def asset_reference(path: Path) -> str:
     resolved = path.resolve()
-    for base in (USER_ROOT, ROOT):
+    for base in (USER_ROOT, RESOURCE_ROOT):
         if resolved.is_relative_to(base):
             return resolved.relative_to(base).as_posix()
     raise ValueError("asset path is outside ANNA resource roots")
@@ -356,7 +366,7 @@ class DialogAudioController:
 
     def make_portable_asset(self, source: Path) -> str:
         source = source.resolve()
-        if source.is_relative_to(USER_ROOT) or source.is_relative_to(ROOT):
+        if source.is_relative_to(USER_ROOT) or source.is_relative_to(RESOURCE_ROOT):
             try:
                 asset = self.validate_asset(asset_reference(source))
                 if asset:
@@ -979,7 +989,7 @@ class SupportConfigDialog(QDialog):
 
     def make_portable_asset(self, source: Path, kind: str) -> str:
         source=source.resolve()
-        if source.is_relative_to(USER_ROOT) or source.is_relative_to(ROOT):
+        if source.is_relative_to(USER_ROOT) or source.is_relative_to(RESOURCE_ROOT):
             try: return validate_support_asset(asset_reference(source)) or ""
             except ValueError: pass
         target_dir=SUPPORTS_DIR/("images" if kind=="image" else "audio"); target_dir.mkdir(parents=True,exist_ok=True)
@@ -1241,7 +1251,7 @@ class EditorWindow(QMainWindow):
         self.research = ResearchSessionManager(RESULTS_DIR / "sessions")
         self.users_manager = UsersManager(USERS_CSV)
         self._research_completed_videos: set[str] = set()
-        self.language = load_language(ROOT)
+        self.language = load_language(SETTINGS_ROOT)
         self.setWindowTitle(PRODUCT_TITLE)
         self.make_menu()
         self.scene = QGraphicsScene(0, 0, FRAME_WIDTH, FRAME_HEIGHT, self)
@@ -1582,7 +1592,7 @@ class EditorWindow(QMainWindow):
         )
 
     def open_sample_project(self) -> None:
-        self.load_json(ROOT / "demo_project" / "washing_hands.json")
+        self.load_json(RESOURCE_ROOT / "demo_project" / "washing_hands.json")
 
     def new_project(self) -> None:
         if not self.resolve_pending_segment_changes():
@@ -1614,7 +1624,7 @@ class EditorWindow(QMainWindow):
 
     def change_language(self, language: str) -> None:
         self.language = set_language(language)
-        save_language(ROOT, self.language)
+        save_language(SETTINGS_ROOT, self.language)
         self.configure_tts_locale()
         self.retranslate_ui()
 
@@ -2059,7 +2069,7 @@ class EditorWindow(QMainWindow):
     def resolved_video_path(self, video: VideoEntry) -> Path:
         source_path = Path(video.source)
         if not source_path.is_absolute():
-            source_path = (ROOT / source_path).resolve()
+            source_path = (RESOURCE_ROOT / source_path).resolve()
         return source_path
 
     def request_video_thumbnail(self, video: VideoEntry) -> None:

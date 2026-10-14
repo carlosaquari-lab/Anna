@@ -184,7 +184,7 @@ def test_research_log_keeps_absolute_positions_and_optional_bounds(tmp_path) -> 
 
 
 def test_sample_project_remains_legacy_compatible() -> None:
-    path = Path(__file__).parents[1] / "demo_project" / "washing_hands.json"
+    path = Path(__file__).parents[1] / "anna" / "demo_project" / "washing_hands.json"
     payload = json.loads(path.read_text(encoding="utf-8-sig"))
     videos = videos_from_project_payload(payload)
     assert videos and all(video.start_time is None and video.end_time is None for video in videos)

@@ -29,6 +29,26 @@ ANNA is developed in Python using PySide6/Qt.
 
 ## Requirements
 
+### Installing from PyPI
+
+Install a specific ANNA release with:
+
+```bash
+python -m pip install anna-aac==1.0.0
+```
+
+Then start the installed application with:
+
+```bash
+anna
+```
+
+Alternatively, run:
+
+```bash
+python -m anna
+```
+
 ### Windows executable
 
 A packaged Windows version is provided with the ANNA 1.0.0 release.
@@ -49,7 +69,11 @@ Install the required dependencies:
 python -m pip install -r requirements.txt
 ```
 
-Then start ANNA from the project source.
+Then start ANNA from the project source:
+
+```bash
+python hotspot_editor.py
+```
 
 ## Demonstration project
 

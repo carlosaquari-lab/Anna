@@ -7,8 +7,8 @@ app_name = "ANNA"
 distribution_name = "ANNA-1.0.0-Windows"
 
 datas = [
-    ("assets", "assets"),
-    ("demo_project", "demo_project"),
+    ("anna/assets", "assets"),
+    ("anna/demo_project", "demo_project"),
     ("LICENSE", "."),
     ("PACKAGE_README.txt", "."),
     ("THIRD_PARTY_NOTICES.txt", "."),
@@ -46,7 +46,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=["assets/app/ANNA.ico"],
+    icon=["anna/assets/app/ANNA.ico"],
     version="packaging/windows_version_info.txt",
     contents_directory=".",
 )

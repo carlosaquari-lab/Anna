@@ -126,7 +126,7 @@ def test_about_help_menu_and_neutral_save_name(monkeypatch, tmp_path: Path) -> N
 
 def test_sample_project_is_not_loaded_at_startup_and_its_resources_resolve(monkeypatch, tmp_path: Path) -> None:
     _app()
-    demo = Path(hotspot_editor.__file__).parent / "demo_project" / "washing_hands.json"
+    demo = hotspot_editor.RESOURCE_ROOT / "demo_project" / "washing_hands.json"
     blank = _isolated_window(monkeypatch, tmp_path)
     try:
         assert blank.videos[0].source == ""
@@ -139,7 +139,7 @@ def test_sample_project_is_not_loaded_at_startup_and_its_resources_resolve(monke
         "VID_20260906_121554.mp4",
         "VID_20260906_121715.mp4",
     ]
-    assert all((Path(hotspot_editor.__file__).parent / video.source).is_file() for video in videos)
+    assert all((hotspot_editor.RESOURCE_ROOT / video.source).is_file() for video in videos)
     image_assets = [
         support.image_asset
         for video in videos
@@ -148,9 +148,9 @@ def test_sample_project_is_not_loaded_at_startup_and_its_resources_resolve(monke
         if support.image_asset
     ]
     assert set(image_assets) == {
-        "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.jpg"
+        "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.png"
     }
-    assert all((Path(hotspot_editor.__file__).parent / asset).is_file() for asset in image_assets)
+    assert all((hotspot_editor.RESOURCE_ROOT / asset).is_file() for asset in image_assets)
 
 
 def test_help_action_opens_packaged_sample_through_normal_loader(monkeypatch, tmp_path: Path) -> None:
@@ -161,19 +161,19 @@ def test_help_action_opens_packaged_sample_through_normal_loader(monkeypatch, tm
         monkeypatch.setattr(window, "load_json", lambda path: loaded.append(path))
         window.open_sample_project_action.trigger()
 
-        expected = Path(hotspot_editor.__file__).parent / "demo_project" / "washing_hands.json"
+        expected = hotspot_editor.RESOURCE_ROOT / "demo_project" / "washing_hands.json"
         assert loaded == [expected]
         assert expected.is_file()
-        assert all((Path(hotspot_editor.__file__).parent / video).is_file() for video in (
+        assert all((hotspot_editor.RESOURCE_ROOT / video).is_file() for video in (
             "demo_project/videos/VID_20260906_121554.mp4",
             "demo_project/videos/VID_20260906_121715.mp4",
         ))
         assert (
-            Path(hotspot_editor.__file__).parent
-            / "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.jpg"
+            hotspot_editor.RESOURCE_ROOT
+            / "assets/supports/images/support_85c3b242f5bd4db49e9c6d543860c8cc.png"
         ).is_file()
         spec = (Path(hotspot_editor.__file__).parent / "ANNA.spec").read_text(encoding="utf-8")
-        assert '("demo_project", "demo_project")' in spec
+        assert '("anna/demo_project", "demo_project")' in spec
     finally:
         window.close()
 

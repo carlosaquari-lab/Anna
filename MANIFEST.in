@@ -1,0 +1,6 @@
+include LICENSE
+include DATA_PRIVACY.md
+include RESOURCE_INVENTORY.md
+include THIRD_PARTY_NOTICES.txt
+recursive-include anna/assets *
+recursive-include anna/demo_project *

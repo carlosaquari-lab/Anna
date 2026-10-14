@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anna-aac"
+version = "1.0.0"
+description = "Interactive Video Activities for Augmentative and Alternative Communication"
+readme = "readme.md"
+requires-python = ">=3.12"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Carlos Máñez-Carvajal" },
+]
+dependencies = [
+  "PySide6==6.11.0",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: Education",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Education",
+]
+
+[project.urls]
+Repository = "https://github.com/carlosaquari-lab/Anna"
+Issues = "https://github.com/carlosaquari-lab/Anna/issues"
+
+[project.gui-scripts]
+anna = "hotspot_editor:main"
+
+[tool.setuptools]
+packages = ["anna"]
+py-modules = [
+  "data_storage",
+  "hotspot_editor",
+  "hotspot_model",
+  "localization",
+  "playback_controller",
+  "research_export",
+  "research_models",
+  "research_session",
+  "research_summary",
+  "temporal_event_engine",
+  "users_manager",
+  "version",
+]
+include-package-data = false
+
+[tool.setuptools.package-data]
+anna = [
+  "assets/app/*",
+  "assets/supports/images/*",
+  "demo_project/*.json",
+  "demo_project/*.md",
+  "demo_project/videos/*",
+  "demo_project/session_examples/anonymous/*",
+  "demo_project/session_examples/identified/*",
+]

@@ -3,6 +3,7 @@ __pycache__/
 .pytest_cache/
 *.pyc
 *.pyo
+*.egg-info/
 
 results/
 anna_data/
@@ -22,9 +23,11 @@ export/
 local_exports/
 
 .venv/
+.release-venv/
 venv/
 env/
 ENV/
 build/
 dist/
+pypi-dist/
 ANNA-1.0.0-Windows.zip
