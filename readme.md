@@ -31,23 +31,25 @@ ANNA is developed in Python using PySide6/Qt.
 
 ### Installing from PyPI
 
-Install a specific ANNA release with:
+Python 3.12 is recommended for installing ANNA 1.0.0 on Windows. Verify that it is available with:
 
-```bash
-python -m pip install anna-aac==1.0.0
+```powershell
+py -3.12 --version
+```
+
+Install ANNA 1.0.0 from PyPI with:
+
+```powershell
+py -3.12 -m pip install anna-aac==1.0.0
 ```
 
 Then start the installed application with:
 
-```bash
-anna
+```powershell
+py -3.12 -m anna
 ```
 
-Alternatively, run:
-
-```bash
-python -m anna
-```
+Python 3.15 is not compatible with the PySide6 6.11.0 dependency used by ANNA 1.0.0. Using `py -3.12 -m anna` also starts ANNA when the `anna` command is not available on `PATH`.
 
 ### Windows executable
 
